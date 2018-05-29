@@ -2,19 +2,11 @@ package Finansai;
 
 import java.text.ParseException;
 
-public class IslaiduIrasas extends PinigaiAbstactClass{
+public class IslaiduIrasas extends PinigaiAbstactClass {
 
     private static int kelintasIslaiduIrasas = 0;
 
-
-//    private String data;
-//    private SimpleDateFormat manoFormatas = new SimpleDateFormat("yyyy-MM-dd");
-//    private Date manoData;
-//
-//    private double suma;
-//    private String pastabos;
     private String islaidos;
-//    private String gryni;
 
     IslaiduIrasas(double suma, int islaiduKategorija, int grynais, String ivestas, String pastabos) throws ParseException {
         super();
