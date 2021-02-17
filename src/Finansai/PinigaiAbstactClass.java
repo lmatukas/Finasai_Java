@@ -1,6 +1,5 @@
 package Finansai;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class PinigaiAbstactClass {

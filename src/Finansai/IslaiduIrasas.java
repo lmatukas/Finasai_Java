@@ -1,6 +1,5 @@
 package Finansai;
 
-import java.text.ParseException;
 import java.util.Date;
 
 public class IslaiduIrasas extends PinigaiAbstactClass {
@@ -9,7 +8,7 @@ public class IslaiduIrasas extends PinigaiAbstactClass {
 
     private String islaidos;
 
-    IslaiduIrasas(double suma, int islaiduKategorija, int grynais, Date ivestas, String pastabos) throws ParseException {
+    IslaiduIrasas(double suma, int islaiduKategorija, int grynais, Date ivestas, String pastabos) {
         super();
 
         this.suma = suma;

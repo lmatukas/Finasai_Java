@@ -4,6 +4,7 @@
     <list default="true" id="ad6bb951-327c-4ec6-874e-bea5dc826f7a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Finansai/IslaiduIrasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/IslaiduIrasas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/Ivedimas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Ivedimas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Finansai/Logika.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Logika.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Finansai/PajamuIrasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/PajamuIrasas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Finansai/PinigaiAbstactClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/PinigaiAbstactClass.java" afterDir="false" />
@@ -160,7 +161,7 @@
       <updated>1527624280160</updated>
       <workItem from="1527624283243" duration="155000" />
       <workItem from="1527624595952" duration="54000" />
-      <workItem from="1613550441194" duration="4439000" />
+      <workItem from="1613550441194" duration="8152000" />
     </task>
     <servers />
   </component>
@@ -204,6 +205,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Finansai/Pagrindine.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Finansai/Meniu.java">
