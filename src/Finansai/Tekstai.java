@@ -2,8 +2,6 @@ package Finansai;
 
 public class Meniu {
 
-    Logika logika = new Logika();
-
     public static void pasirinkoteIvestiPajamas() {
         System.out.println("Pasirinkote ivesti pajamas.");
     }
@@ -87,7 +85,7 @@ public class Meniu {
     public static void uzkraunamiDuomenys() {
 
         System.out.println("Uzkraunami duomenys");
-        System.out.println("");
+        System.out.println();
 
     }
 
@@ -108,10 +106,6 @@ public class Meniu {
         System.out.println();
     }
 
-    public static void tusciaEilute() {
-        System.out.println(" ");
-    }
-
     public static void informacijApiePinigus() {
         System.out.println("Iveskite papildomos informacijos: ");
 
@@ -119,12 +113,6 @@ public class Meniu {
 
     public static void iveskiteKiekPinigu() {
         System.out.println("Iveskite suma");
-    }
-
-    public static void nepakankaPiniguPatikrinkiteIrasa() {
-        System.out.println("nepakanka pinigu");
-        System.out.println("Patiktrinkite informacija ir pakartokite irasa");
-        System.out.println();
     }
 
     public static void smulkesneInformacijaApiePajamasIrIslaidas() {
@@ -155,29 +143,16 @@ public class Meniu {
 
     public static void nerinkamasDatosFormatas() {
         System.err.println("Netinkamas datos formatas");
-
     }
 
     public static void kaVedi() {
         System.err.println("Netinkamas ivedimas");
-
     }
 
     public static void irasuNera() {
         System.out.println("**********");
         System.out.println("Irasu nera");
         System.out.println("**********");
-    }
-
-
-    public static void pasirinkoteNepirkti() {
-        System.out.println("Galite toliau naudotis nemokamomis pas;laugomis");
-    }
-
-    public static void arPirksitePilnaVessija() {
-        System.out.println("Nemokamoje versijoje baigesi vieta. Norite isigyti mokama versija?");
-        System.out.println("TAIP - 1");
-        System.out.println("NE - 2");
     }
 
     public static void paskutinisIrasas() {
