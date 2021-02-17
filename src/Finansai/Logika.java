@@ -195,26 +195,16 @@ public class Logika {
     void paleidimas() {
         veikia = true;
         while (veikia) {
-
-
             try {
                 Meniu.pagrindinisMeniu();
-
                 String skaicius_ = ivedimas.teksta();
                 int meniuPasirinkiams = Integer.parseInt(skaicius_);
-
-
                 if (meniuPasirinkiams == 1) {
                     pasirinkta1IvestiPajamas();
-
                 } else if (meniuPasirinkiams == 2) {
                     pasirinkta2IvestiIslaidas();
-
                 } else if (meniuPasirinkiams == 3) {
-
                     pasirinkta3PerziuretiBalansa();
-
-
                 } else if (meniuPasirinkiams == 0) {
                     Meniu.pasirinkoteVisoGeriausio();
                     return;
@@ -224,10 +214,7 @@ public class Logika {
             } catch (Exception e) {
                 scanner.reset();
                 Meniu.kaVedi();
-
             }
-
-
         }
 
     }
@@ -239,6 +226,7 @@ public class Logika {
         islaidosVaizduojamosCia();
 
         smulkesneInformacija = true;
+
         while (smulkesneInformacija) {
             Meniu.smulkesneInformacijaApiePajamasIrIslaidas();
 
@@ -319,35 +307,29 @@ public class Logika {
         ivestiesMeniu = true;
 
         while (ivestiesMeniu) {
-
-            Meniu.islaiduMeniu();
-
-            String skaicius_ = ivedimas.teksta();
-            int j = Integer.parseInt(skaicius_);
-
-            if (j > 0 && j < 8) {
-                this.uzKa = j;
-                Meniu.informacijApiePinigus();
-                ivedimoLogika();
-                generuojamasNaujasIslaiduObjektas(this.suma, this.uzKa, this.valiutosID, this.data, this.pastabos);
-
-                balansoSkaiciavimas(false);
-
-
-
-                ivestiesMeniu = false;
-
-
-            } else if (j == 9) {
-                ivestiesMeniu = false;
-            } else if (j == 0) {
-                Meniu.pasirinkoteVisoGeriausio();
-                return;
-            } else {
-                Meniu.pasirinkoteNesuprantamaKomanda();
+            try {
+                Meniu.islaiduMeniu();
+                String skaicius_ = ivedimas.teksta();
+                int j = Integer.parseInt(skaicius_);
+                if (j > 0 && j < 8) {
+                    this.uzKa = j;
+                    Meniu.informacijApiePinigus();
+                    ivedimoLogika();
+                    generuojamasNaujasIslaiduObjektas(this.suma, this.uzKa, this.valiutosID, this.data, this.pastabos);
+                    balansoSkaiciavimas(false);
+                    ivestiesMeniu = false;
+                } else if (j == 9) {
+                    ivestiesMeniu = false;
+                } else if (j == 0) {
+                    Meniu.pasirinkoteVisoGeriausio();
+                    return;
+                } else {
+                    Meniu.pasirinkoteNesuprantamaKomanda();
+                }
+            } catch (Exception e) {
+                scanner.reset();
+                Meniu.kaVedi();
             }
-
-
         }
     }
 
@@ -374,36 +356,41 @@ public class Logika {
     }
 
     private void pasirinkta1IvestiPajamas() {
+
         Meniu.pasirinkoteIvestiPajamas();
         ivestiesMeniu = true;
 
         while (ivestiesMeniu) {
+            try {
+                Meniu.pajamuMeniu();
+                String skaicius_ = ivedimas.teksta();
+                int j = Integer.parseInt(skaicius_);
 
-            Meniu.pajamuMeniu();
-            String skaicius_ = ivedimas.teksta();
-            int j = Integer.parseInt(skaicius_);
+                if (j > 0 && j <= 5) {
+                    this.uzKa = j;
+                    Meniu.informacijApiePinigus();
+                    ivedimoLogika();
+                    generuojamasNaujasIrasoObjektas(this.suma, this.uzKa, this.valiutosID, this.data, this.pastabos);
+                    balansoSkaiciavimas(true);
+                    ivestiesMeniu = false;
 
-            if (j > 0 && j <= 5) {
-                this.uzKa = j;
-                Meniu.informacijApiePinigus();
-                ivedimoLogika();
-                generuojamasNaujasIrasoObjektas(this.suma, this.uzKa, this.valiutosID, this.data, this.pastabos);
-                balansoSkaiciavimas(true);
-                ivestiesMeniu = false;
+                } else if (j == 9) {
+                    ivestiesMeniu = false;
+                } else if (j == 0) {
+                    Meniu.pasirinkoteVisoGeriausio();
+                    return;
+                } else {
+                    Meniu.pasirinkoteNesuprantamaKomanda();
+                }
 
-            } else if (j == 9) {
-                ivestiesMeniu = false;
-            } else if (j == 0) {
-                Meniu.pasirinkoteVisoGeriausio();
-                return;
-            } else {
-                Meniu.pasirinkoteNesuprantamaKomanda();
+            }catch (Exception e) {
+                scanner.reset();
+                Meniu.kaVedi();
             }
         }
     }
 
     private void islaidosVaizduojamosCia() {
-
 
         System.out.println();
         System.out.println(this.balansas + " EUR - bendras balansas");
