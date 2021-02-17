@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class Logika {
 
-    protected SimpleDateFormat manoFormatas = new SimpleDateFormat("yyyy-MM-dd");
+    public SimpleDateFormat manoFormatas = new SimpleDateFormat("yyyy-MM-dd");
     Scanner scanner = new Scanner(System.in);
     Ivedimas ivedimas = new Ivedimas();
-    PajamuIrasas[] pajamuIraoMasyvas = new PajamuIrasas[100];
-    IslaiduIrasas[] islaiduIrasoMasyvas = new IslaiduIrasas[100];
+    PajamuIrasas[] pajamuIraoMasyvas = new PajamuIrasas[3];
+    IslaiduIrasas[] islaiduIrasoMasyvas = new IslaiduIrasas[3];
     boolean veikia = true;
     boolean ivestiesMeniu = true;
     boolean kiekPinigu = true;
@@ -28,6 +28,7 @@ public class Logika {
     private int valiutosID;
     private Date data;
     private String pastabos;
+    boolean pilnaVersija = true;
 
     void pajamosIMasyva(PajamuIrasas[] pajamuIraoMasyvas, PajamuIrasas a) {
 
@@ -38,23 +39,32 @@ public class Logika {
                 Meniu.irasasIsaugotas();
                 break;
             }
-            Meniu.arPirksitePilnaVessija();
-
-            try {
-                String skaicius_ = ivedimas.teksta();
-                int pirkti = Integer.parseInt(skaicius_);
-                if (pirkti == 2) {
-                    Meniu.pasirinkoteNepirkti();
-                    return;
-                } else if (pirkti == 1) {
-                    PajamuIrasas[] laikinasMasyvas = new PajamuIrasas[pajamuIraoMasyvas.length * 2];
-                    for (int j = 0; j < pajamuIraoMasyvas.length; j++) {
-                        laikinasMasyvas[i] = pajamuIraoMasyvas[i];
+            if (pajamuIraoMasyvas[pajamuIraoMasyvas.length-1] != null){
+                Meniu.arPirksitePilnaVessija();
+                pilnaVersija = true;
+                while (pilnaVersija){
+                    try {
+                        Meniu.arPirksitePilnaVessija();
+                        String skaicius_ = ivedimas.teksta();
+                        int pirkti = Integer.parseInt(skaicius_);
+                        if (pirkti == 2) {
+                            Meniu.pasirinkoteNepirkti();
+                            return;
+                        } else if (pirkti == 1) {
+                            PajamuIrasas[] laikinasMasyvas = new PajamuIrasas[pajamuIraoMasyvas.length * 2];
+                            for (int j = 0; j < pajamuIraoMasyvas.length; j++) {
+                                laikinasMasyvas[i] = pajamuIraoMasyvas[i];
+                            }
+                            pajamuIraoMasyvas = laikinasMasyvas;
+                            pilnaVersija = false;
+                        } else {
+                            Meniu.pasirinkoteNesuprantamaKomanda();
+                        }
+                    } catch (Exception e) {
                     }
-                    pajamuIraoMasyvas = laikinasMasyvas;
                 }
-            } catch (Exception e) {
             }
+
         }
 
     }
@@ -396,9 +406,9 @@ public class Logika {
 
 
         System.out.println();
-        System.out.println(this.balansas + " pinigas - bendras balansas");
-        System.out.println(this.balansasKortele + " pinigas - korteles balansas");
-        System.out.println(this.balansasGrynais + " pinigas - grynu balansas");
+        System.out.println(this.balansas + " EUR - bendras balansas");
+        System.out.println(this.balansasKortele + " EUR - korteles balansas");
+        System.out.println(this.balansasGrynais + " EUR - grynu balansas");
         System.out.println();
     }
 

@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ad6bb951-327c-4ec6-874e-bea5dc826f7a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Finansai/IslaiduIrasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/IslaiduIrasas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Finansai/Ivedimas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Ivedimas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Finansai/Logika.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Logika.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Finansai/PajamuIrasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/PajamuIrasas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Finansai/PinigaiAbstactClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/PinigaiAbstactClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +158,7 @@
       <updated>1527624280160</updated>
       <workItem from="1527624283243" duration="155000" />
       <workItem from="1527624595952" duration="54000" />
-      <workItem from="1613550441194" duration="8152000" />
+      <workItem from="1613550441194" duration="10278000" />
     </task>
     <servers />
   </component>
@@ -213,6 +210,16 @@
           <url>file://$PROJECT_DIR$/src/Finansai/Pagrindine.java</url>
           <line>10</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Finansai/Logika.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Finansai/PajamuIrasas.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
