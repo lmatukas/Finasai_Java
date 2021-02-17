@@ -1,12 +1,13 @@
 package Finansai;
 
 import java.text.ParseException;
+import java.util.Date;
 
 public class PajamuIrasas extends PinigaiAbstactClass {
 
     private static int kelintasPajamuIrasas = 0;
 
-    PajamuIrasas(double suma, int uzKaGautosPajamos, int grynais, String ivestas, String pastabos) throws ParseException {
+    PajamuIrasas(double suma, int uzKaGautosPajamos, int grynais, Date ivestas, String pastabos) {
         super();
 
 
@@ -35,9 +36,12 @@ public class PajamuIrasas extends PinigaiAbstactClass {
         }
 
 
-        this.manoData = this.manoFormatas.parse(ivestas);
+//        this.manoData = this.manoFormatas.parse(ivestas);
+        this.manoData = ivestas;
 
-        this.data = ("Pajamu data: " + this.manoFormatas.format(this.manoData));
+//        this.data = ("Pajamu data: " + this.manoFormatas.format(this.manoData));
+        this.data = ("Pajamu data: " + this.manoData);
+
 
         this.pastabos = pastabos;
 

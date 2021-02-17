@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ad6bb951-327c-4ec6-874e-bea5dc826f7a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/IslaiduIrasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/IslaiduIrasas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Finansai/Logika.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Logika.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Finansai/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Meniu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/PajamuIrasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/PajamuIrasas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/PinigaiAbstactClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/PinigaiAbstactClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +160,7 @@
       <updated>1527624280160</updated>
       <workItem from="1527624283243" duration="155000" />
       <workItem from="1527624595952" duration="54000" />
-      <workItem from="1613550441194" duration="3529000" />
+      <workItem from="1613550441194" duration="4439000" />
     </task>
     <servers />
   </component>

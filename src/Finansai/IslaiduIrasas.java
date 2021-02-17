@@ -1,6 +1,7 @@
 package Finansai;
 
 import java.text.ParseException;
+import java.util.Date;
 
 public class IslaiduIrasas extends PinigaiAbstactClass {
 
@@ -8,7 +9,7 @@ public class IslaiduIrasas extends PinigaiAbstactClass {
 
     private String islaidos;
 
-    IslaiduIrasas(double suma, int islaiduKategorija, int grynais, String ivestas, String pastabos) throws ParseException {
+    IslaiduIrasas(double suma, int islaiduKategorija, int grynais, Date ivestas, String pastabos) throws ParseException {
         super();
 
         this.suma = suma;
@@ -39,9 +40,10 @@ public class IslaiduIrasas extends PinigaiAbstactClass {
             System.out.println("Neaiskios islaidos");
         }
 
-        this.manoData = this.manoFormatas.parse(ivestas);
+//        this.manoData = this.manoFormatas.parse(ivestas);
+        this.manoData = ivestas;
 
-        this.data = ("Pajamu data: " + this.manoFormatas.format(this.manoData));
+//        this.data = ("Pajamu data: " + this.manoFormatas.format(this.manoData));
 
         this.pastabos = pastabos;
 

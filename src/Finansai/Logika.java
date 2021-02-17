@@ -1,6 +1,8 @@
 package Finansai;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Logika {
@@ -9,6 +11,7 @@ public class Logika {
     Ivedimas ivedimas = new Ivedimas();
     PajamuIrasas[] pajamuIraoMasyvas = new PajamuIrasas[100];
     IslaiduIrasas[] islaiduIrasoMasyvas = new IslaiduIrasas[100];
+    protected SimpleDateFormat manoFormatas = new SimpleDateFormat("yyyy-MM-dd");
 
     private double balansasKortele;
     private double balansasGrynais;
@@ -17,7 +20,7 @@ public class Logika {
     private int uzKa;
     private int grynais;
 
-    private String data;
+    private Date data;
     private String pastabos;
 
     boolean veikia = true;
@@ -60,7 +63,7 @@ public class Logika {
 
     }
 
-    void generuojamasNaujasIrasoObjektas(double suma, int uzKaGautosPajamos, int grynais, String data, String pastabos) throws ParseException {
+    void generuojamasNaujasIrasoObjektas(double suma, int uzKaGautosPajamos, int grynais, Date data, String pastabos) {
         PajamuIrasas naujas;
         naujas = new PajamuIrasas(suma, uzKaGautosPajamos, grynais, data, pastabos);
         pajamosIMasyva(pajamuIraoMasyvas, naujas);
@@ -104,7 +107,7 @@ public class Logika {
 
     }
 
-    void generuojamasNaujasIslaiduObjektas(double suma, int islaiduKategorija, int grynais, String data, String pastabos) throws ParseException {
+    void generuojamasNaujasIslaiduObjektas(double suma, int islaiduKategorija, int grynais, Date data, String pastabos) throws ParseException {
         IslaiduIrasas naujas;
         naujas = new IslaiduIrasas(suma, islaiduKategorija, grynais, data, pastabos);
         islaidosMasyvas(islaiduIrasoMasyvas, naujas);
@@ -113,8 +116,25 @@ public class Logika {
     void ivedimoLogika() {
         ivestiKiekPiniguInesta();
         gryniArKortele();
-        this.data = ivedimas.iveskData();
+        datosIvedimas();
         papildomInfoIvedama();
+    }
+
+    private void datosIvedimas() {
+
+        date = true;
+        while (date) {
+
+            Meniu.iveskiteDataFormatu();
+
+            try {
+                String dataLaikina = ivedimas.teksta();
+                this.data = this.manoFormatas.parse(dataLaikina);
+                date = false;
+            } catch (ParseException e) {
+                Meniu.nerinkamasDatosFormatas();
+            }
+        }
     }
 
     private void papildomInfoIvedama() {
@@ -167,7 +187,6 @@ public class Logika {
                     kiekPinigu = false;
                 }
             } catch (Exception e) {
-
                 scanner.reset();
                 Meniu.kaVedi();
             }
@@ -367,29 +386,13 @@ public class Logika {
                 String skaicius_ = ivedimas.teksta();
                 int j = Integer.parseInt(skaicius_);
 
-//                int j = scanner.nextInt();
-
                 if (j > 0 && j <= 5) {
                     this.uzKa = j;
                     Meniu.informacijApiePinigus();
+                    ivedimoLogika();
+                    generuojamasNaujasIrasoObjektas(this.suma, this.uzKa, this.grynais, this.data, this.pastabos);
+                    ivestiesMeniu = false;
 
-
-                    date = true;
-                    while (date) {
-
-                        ivedimoLogika();
-                        try {
-                            generuojamasNaujasIrasoObjektas(this.suma, this.uzKa, this.grynais, this.data, this.pastabos);
-                            date = false;
-                        } catch (ParseException e) {
-                            Meniu.nerinkamasDatosFormatas();
-
-//                            System.out.println(e.getMessage());
-                        }
-
-
-                        ivestiesMeniu = false;
-                    }
                 } else if (j == 9) {
                     ivestiesMeniu = false;
                 } else if (j == 0) {
