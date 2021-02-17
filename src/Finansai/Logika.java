@@ -104,7 +104,6 @@ public class Logika {
 
     }
 
-
     void generuojamasNaujasIslaiduObjektas(double suma, int islaiduKategorija, int grynais, String data, String pastabos) throws ParseException {
         IslaiduIrasas naujas;
         naujas = new IslaiduIrasas(suma, islaiduKategorija, grynais, data, pastabos);
@@ -116,8 +115,6 @@ public class Logika {
         gryniArKortele();
         this.data = ivedimas.iveskData();
         papildomInfoIvedama();
-
-
     }
 
     private void papildomInfoIvedama() {
@@ -134,7 +131,6 @@ public class Logika {
         gryni = true;
         while (gryni) {
 
-
             try {
                 Meniu.pajamosGrynaisArKortele();
                 String skaicius_ = ivedimas.teksta();
@@ -146,6 +142,8 @@ public class Logika {
                 } else if (cashas == 1) {
                     this.grynais = 1;
                     gryni = false;
+                }else {
+                    Meniu.pasirinkoteNesuprantamaKomanda();
                 }
 
             } catch (Exception e) {
@@ -163,7 +161,7 @@ public class Logika {
                 Meniu.iveskiteKiekPinigu();
 
                 String skaicius_ = ivedimas.teksta();
-                int skaicius = Integer.parseInt(skaicius_);
+                double skaicius = Double.parseDouble(skaicius_);
                 if (skaicius >= 0) {
                     this.suma = skaicius;
                     kiekPinigu = false;
@@ -203,9 +201,9 @@ public class Logika {
                     Meniu.pasirinkoteVisoGeriausio();
                     return;
                 }
-//                else {
-//                    Meniu.pasirinkoteNesuprantamaKomanda();
-//                }
+                else {
+                    Meniu.pasirinkoteNesuprantamaKomanda();
+                }
             } catch (Exception e) {
                 scanner.reset();
                 Meniu.kaVedi();

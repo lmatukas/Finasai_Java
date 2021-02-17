@@ -21,7 +21,7 @@ public class Meniu {
     }
 
     public static void pasirinkoteNesuprantamaKomanda() {
-        System.out.println("Nesuprantama komanda ");
+        System.out.println(" Tokia funkcija neegzistuoja ");
     }
 
     public static void iveskiteDataFormatu() {
