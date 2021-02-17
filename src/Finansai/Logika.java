@@ -19,6 +19,7 @@ public class Logika {
     boolean papildomaInfo = true;
     boolean smulkesneInformacija = true;
     boolean pajamamosArIslaidos = true;
+    boolean visasArDalisIrasu = true;
     boolean date = true;
     private double balansasKortele;
     private double balansasGrynais;
@@ -28,45 +29,26 @@ public class Logika {
     private int valiutosID;
     private Date data;
     private String pastabos;
-    boolean pilnaVersija = true;
 
     void pajamosIMasyva(PajamuIrasas[] pajamuIraoMasyvas, PajamuIrasas a) {
 
+        if (pajamuIraoMasyvas[pajamuIraoMasyvas.length - 1] != null) {
+            Meniu.irasasNeIsaugotas();
+            return;
+        }
 
         for (int i = 0; i < pajamuIraoMasyvas.length; i++) {
+
             if (pajamuIraoMasyvas[i] == null) {
                 pajamuIraoMasyvas[i] = a;
                 Meniu.irasasIsaugotas();
                 break;
             }
-            if (pajamuIraoMasyvas[pajamuIraoMasyvas.length-1] != null){
-                Meniu.arPirksitePilnaVessija();
-                pilnaVersija = true;
-                while (pilnaVersija){
-                    try {
-                        Meniu.arPirksitePilnaVessija();
-                        String skaicius_ = ivedimas.teksta();
-                        int pirkti = Integer.parseInt(skaicius_);
-                        if (pirkti == 2) {
-                            Meniu.pasirinkoteNepirkti();
-                            return;
-                        } else if (pirkti == 1) {
-                            PajamuIrasas[] laikinasMasyvas = new PajamuIrasas[pajamuIraoMasyvas.length * 2];
-                            for (int j = 0; j < pajamuIraoMasyvas.length; j++) {
-                                laikinasMasyvas[i] = pajamuIraoMasyvas[i];
-                            }
-                            pajamuIraoMasyvas = laikinasMasyvas;
-                            pilnaVersija = false;
-                        } else {
-                            Meniu.pasirinkoteNesuprantamaKomanda();
-                        }
-                    } catch (Exception e) {
-                    }
-                }
-            }
-
         }
 
+        if (pajamuIraoMasyvas[pajamuIraoMasyvas.length - 1] != null) {
+            Meniu.paskutinisIrasas();
+        }
     }
 
     void generuojamasNaujasIrasoObjektas(double suma, int uzKaGautosPajamos, int grynais, Date data, String pastabos) {
@@ -76,32 +58,23 @@ public class Logika {
 
     }
 
-    void islaidosMasyvas(IslaiduIrasas[] islaiduIrasoMasyvas, IslaiduIrasas a) {
+    void islaidoIMasyva(IslaiduIrasas[] islaiduIrasoMasyvas, IslaiduIrasas a) {
+
+        if (islaiduIrasoMasyvas[islaiduIrasoMasyvas.length - 1] != null) {
+            Meniu.irasasNeIsaugotas();
+            return;
+        }
+
         for (int i = 0; i < islaiduIrasoMasyvas.length; i++) {
             if (islaiduIrasoMasyvas[i] == null) {
                 islaiduIrasoMasyvas[i] = a;
                 Meniu.irasasIsaugotas();
                 break;
             }
+        }
 
-            Meniu.arPirksitePilnaVessija();
-
-            try {
-                String skaicius_ = ivedimas.teksta();
-                int pirkti = Integer.parseInt(skaicius_);
-                if (pirkti == 2) {
-                    Meniu.pasirinkoteNepirkti();
-                    return;
-                } else if (pirkti == 1) {
-                    IslaiduIrasas[] laikinasMasyvas = new IslaiduIrasas[islaiduIrasoMasyvas.length * 2];
-                    for (int j = 0; j < islaiduIrasoMasyvas.length; j++) {
-                        laikinasMasyvas[i] = islaiduIrasoMasyvas[i];
-                    }
-                    islaiduIrasoMasyvas = laikinasMasyvas;
-                }
-            } catch (Exception e) {
-            }
-
+        if (islaiduIrasoMasyvas[islaiduIrasoMasyvas.length - 1] != null) {
+            Meniu.paskutinisIrasas();
         }
 
     }
@@ -109,7 +82,7 @@ public class Logika {
     void generuojamasNaujasIslaiduObjektas(double suma, int islaiduKategorija, int grynais, Date data, String pastabos) {
         IslaiduIrasas naujas;
         naujas = new IslaiduIrasas(suma, islaiduKategorija, grynais, data, pastabos);
-        islaidosMasyvas(islaiduIrasoMasyvas, naujas);
+        islaidoIMasyva(islaiduIrasoMasyvas, naujas);
     }
 
     void ivedimoLogika() {
@@ -127,7 +100,7 @@ public class Logika {
             Meniu.iveskiteDataFormatu();
 
             try {
-                String dataLaikina = ivedimas.teksta();
+                String dataLaikina = ivedimas.tekstas();
                 this.data = this.manoFormatas.parse(dataLaikina);
                 date = false;
             } catch (ParseException e) {
@@ -140,7 +113,7 @@ public class Logika {
         papildomaInfo = true;
         while (papildomaInfo) {
             Meniu.informacijApiePinigus();
-            String pastab = ivedimas.teksta();
+            String pastab = ivedimas.tekstas();
             this.pastabos = pastab;
             papildomaInfo = false;
         }
@@ -152,7 +125,7 @@ public class Logika {
 
             try {
                 Meniu.pajamosGrynaisArKortele();
-                String skaicius_ = ivedimas.teksta();
+                String skaicius_ = ivedimas.tekstas();
                 int cashas = Integer.parseInt(skaicius_);
 
                 if (cashas == 0) {
@@ -179,7 +152,7 @@ public class Logika {
             try {
                 Meniu.iveskiteKiekPinigu();
 
-                String skaicius_ = ivedimas.teksta();
+                String skaicius_ = ivedimas.tekstas();
                 double skaicius = Double.parseDouble(skaicius_);
                 if (skaicius >= 0) {
                     this.suma = skaicius;
@@ -197,7 +170,7 @@ public class Logika {
         while (veikia) {
             try {
                 Meniu.pagrindinisMeniu();
-                String skaicius_ = ivedimas.teksta();
+                String skaicius_ = ivedimas.tekstas();
                 int meniuPasirinkiams = Integer.parseInt(skaicius_);
                 if (meniuPasirinkiams == 1) {
                     pasirinkta1IvestiPajamas();
@@ -220,85 +193,136 @@ public class Logika {
     }
 
     private void pasirinkta3PerziuretiBalansa() {
-
         Meniu.pasirinkotePerziuretiBalansa();
-
         islaidosVaizduojamosCia();
-
         smulkesneInformacija = true;
 
         while (smulkesneInformacija) {
             Meniu.smulkesneInformacijaApiePajamasIrIslaidas();
 
-            int i = scanner.nextInt();
-            if (i == 1) {
+            try {
+                String skaicius_ = ivedimas.tekstas();
+                int i = Integer.parseInt(skaicius_);
 
-                pajamamosArIslaidos = true;
-                while (pajamamosArIslaidos) {
-                    Meniu.pajamosArIslaidos();
+                if (i == 1) {
+                    pajamamosArIslaidos = true;
 
-                    int j = scanner.nextInt();
-                    if (j == 1) {
-                        Meniu.kuriIrasaNoresitePerziureti();
-                        int k = scanner.nextInt();
+                    while (pajamamosArIslaidos) {
+                        Meniu.pajamosArIslaidos();
 
-                        if (k == 0) {
+                        try {
 
-                            for (int k2 = 0; k2 < pajamuIraoMasyvas.length; k2++) {
-                                if (pajamuIraoMasyvas[k2] != null) {
-                                    pajamuIraoMasyvas[k2].parodykInfoApiePajamas();
+                            String skaicius2 = ivedimas.tekstas();
+                            int j = Integer.parseInt(skaicius2);
+
+                            if (j == 1) {
+                                visasArDalisIrasu = true;
+                                while (visasArDalisIrasu) {
+                                    Meniu.kuriIrasaNoresitePerziureti();
+                                    try {
+                                        String skaicius3 = ivedimas.tekstas();
+                                        int k = Integer.parseInt(skaicius3);
+
+                                        if (k == 0) {
+                                            for (int k2 = 0; k2 < pajamuIraoMasyvas.length; k2++) {
+                                                if (pajamuIraoMasyvas[k2] != null) {
+                                                    pajamuIraoMasyvas[k2].parodykInfoApiePajamas();
+                                                }
+                                            }
+                                            if (PajamuIrasas.getKelintasPajamuIrasas() == 0) {
+                                                Meniu.irasuNera();
+                                            }
+                                            visasArDalisIrasu = false;
+                                            pajamamosArIslaidos = false;
+                                        } else if (k > pajamuIraoMasyvas.length) {
+                                            Meniu.neraTokioIraso();
+                                            visasArDalisIrasu = false;
+                                            pajamamosArIslaidos = false;
+                                        } else if (k > 0 && pajamuIraoMasyvas[k - 1] != null) {
+                                            pajamuIraoMasyvas[k - 1].parodykInfoApiePajamas();
+                                            visasArDalisIrasu = false;
+                                            pajamamosArIslaidos = false;
+                                        } else {
+                                            Meniu.neraTokioIraso();
+                                            visasArDalisIrasu = false;
+                                            pajamamosArIslaidos = false;
+                                        }
+
+                                    } catch (Exception e) {
+                                        scanner.reset();
+                                        Meniu.kaVedi();
+                                    }
+
+                                }
+
+                            } else if (j == 2) {
+                                visasArDalisIrasu = true;
+                                while (visasArDalisIrasu) {
+                                    Meniu.kuriIrasaNoresitePerziureti();
+                                    try {
+                                        String skaicius4 = ivedimas.tekstas();
+                                        int k = Integer.parseInt(skaicius4);
+
+                                        if (k == 0) {
+
+                                            for (int k2 = 0; k2 < islaiduIrasoMasyvas.length; k2++) {
+                                                if (islaiduIrasoMasyvas[k2] != null) {
+                                                    islaiduIrasoMasyvas[k2].parodykInfoapieislaidas();
+                                                }
+                                            }
+                                            if (IslaiduIrasas.getKelintasIslaiduIrasas() == 0) {
+                                                Meniu.irasuNera();
+                                            }
+                                            visasArDalisIrasu = false;
+                                            pajamamosArIslaidos = false;
+                                        } else if (k > islaiduIrasoMasyvas.length) {
+                                            Meniu.neraTokioIraso();
+                                            visasArDalisIrasu = false;
+                                            pajamamosArIslaidos = false;
+                                        } else if (k > 0 && pajamuIraoMasyvas[k - 1] != null) {
+                                            islaiduIrasoMasyvas[k - 1].parodykInfoapieislaidas();
+                                            visasArDalisIrasu = false;
+                                            pajamamosArIslaidos = false;
+                                        } else {
+                                            Meniu.neraTokioIraso();
+                                            visasArDalisIrasu = false;
+                                            pajamamosArIslaidos = false;
+                                        }
+
+                                    } catch (Exception e) {
+                                        scanner.reset();
+                                        Meniu.kaVedi();
+                                    }
+
                                 }
 
 
-                            }
-                            if (PajamuIrasas.getKelintasPajamuIrasas() == 0) {
-                                Meniu.irasuNera();
+                            } else {
+                                Meniu.pasirinkoteNesuprantamaKomanda();
                             }
 
-                            pajamamosArIslaidos = false;
-
-                        } else if (k > 0 && pajamuIraoMasyvas[k - 1] != null) {
-                            pajamuIraoMasyvas[k - 1].parodykInfoApiePajamas();
-                            pajamamosArIslaidos = false;
-                        } else {
-                            Meniu.neraTokioIraso();
-                            pajamamosArIslaidos = false;
+                        } catch (Exception e) {
+                            scanner.reset();
+                            Meniu.kaVedi();
                         }
 
-                    } else if (j == 2) {
-                        Meniu.kuriIrasaNoresitePerziureti();
-                        int k = scanner.nextInt();
-
-                        if (k == 0) {
-
-                            for (int k2 = 0; k2 < islaiduIrasoMasyvas.length; k2++) {
-                                if (islaiduIrasoMasyvas[k2] != null) {
-                                    islaiduIrasoMasyvas[k2].parodykInfoapieislaidas();
-                                }
-
-                            }
-                            if (IslaiduIrasas.getKelintasIslaiduIrasas() == 0) {
-                                Meniu.neraTokioIraso();
-                            }
-
-                            pajamamosArIslaidos = false;
-                        } else if (k > 0 && pajamuIraoMasyvas[k - 1] != null) {
-                            islaiduIrasoMasyvas[k - 1].parodykInfoapieislaidas();
-                            pajamamosArIslaidos = false;
-                        } else {
-                            Meniu.neraTokioIraso();
-                            pajamamosArIslaidos = false;
-                        }
 
                     }
 
+                    smulkesneInformacija = false;
+
+                } else if (i == 2) {
+                    smulkesneInformacija = false;
+                } else {
+                    Meniu.pasirinkoteNesuprantamaKomanda();
                 }
 
-                smulkesneInformacija = false;
-
-            } else if (i == 2) {
-                smulkesneInformacija = false;
+            } catch (Exception e) {
+                scanner.reset();
+                Meniu.kaVedi();
             }
+
+
         }
     }
 
@@ -309,7 +333,7 @@ public class Logika {
         while (ivestiesMeniu) {
             try {
                 Meniu.islaiduMeniu();
-                String skaicius_ = ivedimas.teksta();
+                String skaicius_ = ivedimas.tekstas();
                 int j = Integer.parseInt(skaicius_);
                 if (j > 0 && j < 8) {
                     this.uzKa = j;
@@ -334,7 +358,7 @@ public class Logika {
     }
 
     private void balansoSkaiciavimas(boolean arPajamos) {
-        if (arPajamos){
+        if (arPajamos) {
             if (valiutosID == 1) {
                 this.balansasGrynais = this.balansasGrynais + this.suma;
                 this.balansas = this.balansas + this.suma;
@@ -343,7 +367,7 @@ public class Logika {
                 this.balansas = this.balansas + this.suma;
             }
 
-        }else {
+        } else {
             if (valiutosID == 1) {
                 this.balansasGrynais = this.balansasGrynais - this.suma;
                 this.balansas = this.balansas - this.suma;
@@ -363,7 +387,7 @@ public class Logika {
         while (ivestiesMeniu) {
             try {
                 Meniu.pajamuMeniu();
-                String skaicius_ = ivedimas.teksta();
+                String skaicius_ = ivedimas.tekstas();
                 int j = Integer.parseInt(skaicius_);
 
                 if (j > 0 && j <= 5) {
@@ -383,7 +407,7 @@ public class Logika {
                     Meniu.pasirinkoteNesuprantamaKomanda();
                 }
 
-            }catch (Exception e) {
+            } catch (Exception e) {
                 scanner.reset();
                 Meniu.kaVedi();
             }

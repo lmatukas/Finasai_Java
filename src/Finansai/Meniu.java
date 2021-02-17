@@ -145,7 +145,7 @@ public class Meniu {
     }
 
     public static void neraTokioIraso() {
-        System.out.println("Toksirasas neegzistuoja");
+        System.out.println("Toks irasas neegzistuoja");
     }
 
 
@@ -164,7 +164,9 @@ public class Meniu {
     }
 
     public static void irasuNera() {
+        System.out.println("**********");
         System.out.println("Irasu nera");
+        System.out.println("**********");
     }
 
 
@@ -177,5 +179,15 @@ public class Meniu {
         System.out.println("TAIP - 1");
         System.out.println("NE - 2");
     }
+
+    public static void paskutinisIrasas() {
+        System.out.println("Tai paskutinis tilpes irasas");
+        System.out.println("Noredami naudotis pilna programos versija kreipkites el pastu: info@noriudaugiauvietossavofinansams.lt");
+    }
+
+    public static void irasasNeIsaugotas() {
+        System.out.println("SIS IRASAS NEBUVO ISSAUGOTAS. ATMINTIS PILNA");
+    }
+
 }
 
