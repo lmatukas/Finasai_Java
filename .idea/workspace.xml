@@ -3,14 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="ad6bb951-327c-4ec6-874e-bea5dc826f7a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Finansai/Ivedimas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Ivedimas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/IslaiduIrasas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/IslaiduIrasas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/Logika.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/Logika.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/Meniu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/Pagrindine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/Pagrindine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/PajamuIrasas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/PajamuIrasas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/PinigaiAbstactClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Finansai/Finansai/PinigaiAbstactClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/IslaiduIrasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/IslaiduIrasas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/Konstantos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Konstantos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Finansai/Logika.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Logika.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Finansai/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Meniu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/Pagrindine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Pagrindine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/PajamuIrasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/PajamuIrasas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/PinigaiAbstactClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/PinigaiAbstactClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finansai/Tekstai.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finansai/Tekstai.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,6 +93,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -109,17 +127,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,7 +166,8 @@
       <updated>1527624280160</updated>
       <workItem from="1527624283243" duration="155000" />
       <workItem from="1527624595952" duration="54000" />
-      <workItem from="1613550441194" duration="17634000" />
+      <workItem from="1613550441194" duration="20847000" />
+      <workItem from="1615665574604" duration="79000" />
     </task>
     <servers />
   </component>
@@ -203,6 +211,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Finansai/Meniu.java">

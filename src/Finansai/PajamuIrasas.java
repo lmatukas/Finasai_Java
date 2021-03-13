@@ -3,49 +3,39 @@ package Finansai;
 import java.util.Date;
 
 public class PajamuIrasas extends PinigaiAbstactClass {
-
     private static int kelintasPajamuIrasas = 0;
 
     PajamuIrasas(double suma, int uzKaGautosPajamos, int grynais, Date ivestas, String pastabos) {
         super();
 
-
         this.suma = suma;
 
         if (grynais == 1) {
-            this.gryni = "grynaisiais";
+            this.valiuta = Konstantos.GRYNAIS;
         } else if (grynais == 0) {
-            this.gryni = "i kortele";
+            this.valiuta = Konstantos.I_KORTELE;
         } else {
-            Meniu.ivykoKlaidaNustatanGrynaisArKortele();
+            Tekstai.ivykoKlaidaNustatanGrynaisArKortele();
         }
 
         if (uzKaGautosPajamos == 1) {
-            pajamos = "Atlyginimas";
+            pajamos = Konstantos.ATLYGINIMAS;
         } else if (uzKaGautosPajamos == 2) {
-            pajamos = "Individuali veikla";
+            pajamos = Konstantos.INDIVIDUALI_VEIKLA;
         } else if (uzKaGautosPajamos == 3) {
-            pajamos = "Būsto nuoma";
+            pajamos = Konstantos.BUSTO_NUOMA;
         } else if (uzKaGautosPajamos == 4) {
-            pajamos = "Dovanos";
+            pajamos = Konstantos.DOVANOS;
         } else if (uzKaGautosPajamos == 5) {
-            pajamos = "Kita";
+            pajamos = Konstantos.KITA;
         } else {
-            System.out.println("Neaiskios pajamos");
+            System.out.println(Konstantos.NEAISKIOS_PAJAMOS);
         }
 
-
-//        this.manoData = this.manoFormatas.parse(ivestas);
         this.manoData = ivestas;
-
-//        this.data = ("Pajamu data: " + this.manoFormatas.format(this.manoData));
-        this.data = ("Pajamu data: " + this.manoData);
-
-
+        this.data = ("" + this.manoData);
         this.pastabos = pastabos;
-
         kelintasPajamuIrasas++;
-
     }
 
     public static int getKelintasPajamuIrasas() {
@@ -54,12 +44,10 @@ public class PajamuIrasas extends PinigaiAbstactClass {
     }
 
     void parodykInfoApiePajamas() {
-        System.out.println("tai yra " + kelintasPajamuIrasas + " pajamu irasas");
-        System.out.println("Pajamos gautos uz " + this.pajamos);
-        System.out.println("Irasas padarytas " + this.data);
-        System.out.println("Pinigai gauti " + this.gryni);
-        System.out.println("Pastabos apie irasa: " + this.pastabos);
+        Tekstai.kelintasIrasas(kelintasPajamuIrasas);
+        Tekstai.uzKa(this.pajamos);
+        Tekstai.data(this.data);
+        Tekstai.valiuta(this.valiuta);
+        Tekstai.pastabos(this.pastabos);
     }
-
-
 }

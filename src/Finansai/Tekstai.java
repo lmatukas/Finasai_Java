@@ -1,6 +1,6 @@
 package Finansai;
 
-public class Meniu {
+public class Tekstai {
 
     public static void pasirinkoteIvestiPajamas() {
         System.out.println("Pasirinkote ivesti pajamas.");
@@ -163,6 +163,40 @@ public class Meniu {
     public static void irasasNeIsaugotas() {
         System.out.println("SIS IRASAS NEBUVO ISSAUGOTAS. ATMINTIS PILNA");
     }
+
+    public static void bendrasBalansas(double balansas) {
+        System.out.println(balansas + " EUR - bendras balansas");
+    }
+
+    public static void bendrasBalansasKortele(double balansas) {
+        System.out.println(balansas + " EUR - korteles balansas");
+    }
+
+    public static void bendrasBalansasGrynais(double balansas) {
+        System.out.println(balansas + " EUR - grynu balansas");
+    }
+
+    public static void kelintasIrasas(int irasas) {
+        System.out.println("tai yra " + irasas + " irasas");
+    }
+
+    public static void uzKa(String pajamos) {
+        System.out.println("Už: " + pajamos);
+    }
+
+    public static void data(String data) {
+        System.out.println("Irasas padarytas " + data);
+    }
+
+    public static void valiuta(String valiuta) {
+        System.out.println("Valiuta: " + valiuta);
+    }
+
+    public static void pastabos(String pastabos) {
+        System.out.println("Pastabos apie irasa: " + pastabos);
+    }
+
+
 
 }
 

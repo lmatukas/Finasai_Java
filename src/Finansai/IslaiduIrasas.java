@@ -3,9 +3,7 @@ package Finansai;
 import java.util.Date;
 
 public class IslaiduIrasas extends PinigaiAbstactClass {
-
     private static int kelintasIslaiduIrasas = 0;
-
     private String islaidos;
 
     IslaiduIrasas(double suma, int islaiduKategorija, int grynais, Date ivestas, String pastabos) {
@@ -14,40 +12,35 @@ public class IslaiduIrasas extends PinigaiAbstactClass {
         this.suma = suma;
 
         if (grynais == 1) {
-            this.gryni = "grynais";
+            this.valiuta = Konstantos.GRYNAIS;
         } else if (grynais == 0) {
-            this.gryni = "kortele";
+            this.valiuta = Konstantos.I_KORTELE;
         } else {
-            Meniu.ivykoKlaidaNustatanGrynaisArKortele();
+            Tekstai.ivykoKlaidaNustatanGrynaisArKortele();
         }
 
         if (islaiduKategorija == 1) {
-            islaidos = "Maistas";
+            islaidos = Konstantos.MAISTAS;
         } else if (islaiduKategorija == 2) {
-            islaidos = "Transportas";
+            islaidos = Konstantos.TRANSPORTAS;
         } else if (islaiduKategorija == 3) {
-            islaidos = "Komunaliniai mokesčiai";
+            islaidos = Konstantos.KOMUNALINIAI;
         } else if (islaiduKategorija == 4) {
-            islaidos = "Dovanos";
+            islaidos = Konstantos.DOVANOS;
         } else if (islaiduKategorija == 5) {
-            islaidos = "Paskolos";
+            islaidos = Konstantos.PASKOLOS;
         } else if (islaiduKategorija == 6) {
-            islaidos = "Laisvalaikis";
+            islaidos = Konstantos.LAISVALAIKIS;
         } else if (islaiduKategorija == 7) {
-            islaidos = "Asmeninės išlaidos";
+            islaidos = Konstantos.ASMENINES_ISLAIDOS;
         } else {
-            System.out.println("Neaiskios islaidos");
+            System.out.println(Konstantos.NEAISKIOS_ISLAIDOS);
         }
 
-//        this.manoData = this.manoFormatas.parse(ivestas);
         this.manoData = ivestas;
-
-//        this.data = ("Pajamu data: " + this.manoFormatas.format(this.manoData));
-
+        this.data = ("" + this.manoData);
         this.pastabos = pastabos;
-
         kelintasIslaiduIrasas++;
-
     }
 
     public static int getKelintasIslaiduIrasas() {
@@ -56,10 +49,10 @@ public class IslaiduIrasas extends PinigaiAbstactClass {
     }
 
     void parodykInfoapieislaidas() {
-        System.out.println("tai yra " + kelintasIslaiduIrasas + " islaidu irasas");
-        System.out.println("Pinigus isleidote " + this.islaidos);
-        System.out.println("Irasas padarytas " + this.data);
-        System.out.println("Pinigai gauti " + this.gryni);
-        System.out.println("Pastabos apie irasa: " + this.pastabos);
+        Tekstai.kelintasIrasas(kelintasIslaiduIrasas);
+        Tekstai.uzKa(this.islaidos);
+        Tekstai.data(this.data);
+        Tekstai.valiuta(this.valiuta);
+        Tekstai.pastabos(this.pastabos);
     }
 }
